@@ -1,0 +1,50 @@
+{
+  "acKind": "ImageManifest",
+  "acVersion": "0.5.1",
+  "name": "rktscience.io/kube-apiserver",
+  "labels": [
+    {
+      "name": "version",
+      "value": "0.15.0"
+    },
+    {
+      "name": "arch",
+      "value": "amd64"
+    },
+    {
+      "name": "os",
+      "value": "linux"
+    }
+  ],
+  "app": {
+    "user": "root",
+    "group": "root",
+    "exec": [
+      "/bin/kube-apiserver"
+    ],
+    "ports": [
+      {
+        "name": "api-secure",
+        "protocol": "tcp",
+        "port": 6443
+      },
+      {
+        "name": "api-insecure",
+        "protocol": "tcp",
+        "port": 6442
+      }
+    ],
+    "mountPoints": [
+      {
+        "name": "dev",
+        "path": "/dev"
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "name": "authors",
+      "value": "Kelsey Hightower <kelsey.hightower@gmail.com>"
+    }
+  ]
+}

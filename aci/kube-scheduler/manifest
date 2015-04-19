@@ -1,0 +1,42 @@
+{
+  "acKind": "ImageManifest",
+  "acVersion": "0.5.1",
+  "name": "kube-scheduler",
+  "labels": [
+    {
+      "name": "version",
+      "value": "0.15.0"
+    },
+    {
+      "name": "arch",
+      "value": "amd64"
+    },
+    {
+      "name": "os",
+      "value": "linux"
+    }
+  ],
+  "app": {
+    "user": "root",
+    "group": "root",
+    "exec": [
+      "/bin/kube-scheduler"
+    ],
+    "mountPoints": [
+      {
+        "name": "dev",
+        "path": "/dev"
+      },
+      {
+        "name": "ssl-certs",
+        "path": "/etc/ssl/certs/ca-certificates.crt"
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "name": "authors",
+      "value": "Kelsey Hightower <kelsey.hightower@rktscience.io>"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "acKind": "ImageManifest",
+  "acVersion": "0.5.1",
+  "name": "kubelet",
+  "labels": [
+    {
+      "name": "arch",
+      "value": "amd64"
+    },
+    {
+      "name": "os",
+      "value": "linux"
+    },
+    {
+      "name": "version",
+      "value": "0.15.0"
+    }
+  ],
+  "app": {
+    "exec": [
+      "/bin/kubelet"
+    ],
+    "user": "root",
+    "group": "root",
+    "ports": [
+      {
+        "name": "health",
+        "protocol": "tcp",
+        "port": 10250
+      }
+    ],
+    "mountPoints": [
+      {
+        "name": "dev",
+        "path": "/dev"
+      },
+      {
+        "name": "docker",
+        "path": "/var/run/docker.sock"
+      },
+      {
+        "name": "resolv",
+        "path": "/etc/resolv.conf"
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "name": "authors",
+      "value": "Kelsey Hightower <kelsey.hightower@rktscience.io>"
+    }
+  ]
+}

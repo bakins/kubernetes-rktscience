@@ -1,0 +1,64 @@
+{
+  "acKind": "ImageManifest",
+  "acVersion": "0.5.1",
+  "name": "kube-proxy",
+  "labels": [
+    {
+      "name": "version",
+      "value": "0.15.0"
+    },
+    {
+      "name": "arch",
+      "value": "amd64"
+    },
+    {
+      "name": "os",
+      "value": "linux"
+    }
+  ],
+  "app": {
+    "user": "root",
+    "group": "root",
+    "exec": [
+      "/bin/kube-proxy"
+    ],
+    "isolators": [
+      {
+        "name": "os/linux/capabilities-retain-set",
+        "value": {
+          "set": ["CAP_NET_ADMIN"]
+        }
+      }
+    ],
+    "environment": [
+      {
+        "name": "PATH",
+        "value": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin"
+      }
+    ],
+    "mountPoints": [
+      {
+        "name": "dev",
+        "path": "/dev"
+      },
+      {
+        "name": "lib64",
+        "path": "/lib64"
+      },
+      {
+        "name": "usr",
+        "path": "/usr"
+      },
+      {
+        "name": "ssl-certs",
+        "path": "/etc/ssl/certs/ca-certificates.crt"
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "name": "authors",
+      "value": "Kelsey Hightower <kelsey.hightower@rktscience.io>"
+    }
+  ]
+}

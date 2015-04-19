@@ -1,0 +1,66 @@
+{
+  "acKind": "ImageManifest",
+  "acVersion": "0.5.1",
+  "name": "rktscience.io/flannel",
+  "labels": [
+    {
+      "name": "version",
+      "value": "0.3.1"
+    },
+    {
+      "name": "arch",
+      "value": "amd64"
+    },
+    {
+      "name": "os",
+      "value": "linux"
+    }
+  ],
+  "app": {
+    "user": "root",
+    "group": "root",
+    "exec": [
+      "/bin/flanneld"
+    ],
+    "isolators": [
+      {
+        "name": "os/linux/capabilities-retain-set",
+        "value": {
+          "set": ["CAP_NET_ADMIN"]
+        }
+      }
+    ],
+    "ports": [
+      {
+        "name": "flannel-encap",
+        "protocol": "upd",
+        "port": 8285
+      },
+      {
+        "name": "flannel-vxlan",
+        "protocol": "udp",
+        "port": 8472
+      }
+    ],
+    "mountPoints": [
+      {
+        "name": "dev",
+        "path": "/dev"
+      },
+      {
+        "name": "lib64",
+        "path": "/lib64"
+      },
+      {
+        "name": "usr",
+        "path": "/usr"
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "name": "authors",
+      "value": "Kelsey Hightower <kelsey.hightower@gmail.com>"
+    }
+  ]
+}

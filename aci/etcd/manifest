@@ -1,7 +1,7 @@
 {
   "acKind": "ImageManifest",
   "acVersion": "0.5.1",
-  "name": "rktscience.io/kube-apiserver",
+  "name": "rktscience.io/etcd",
   "labels": [
     {
       "name": "version",
